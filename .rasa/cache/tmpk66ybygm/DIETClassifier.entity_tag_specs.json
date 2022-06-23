@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-person",
+      "2": "I-person",
+      "3": "L-person",
+      "4": "U-person",
+      "5": "B-time",
+      "6": "I-time",
+      "7": "L-time",
+      "8": "U-time",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-person": 1,
+      "I-person": 2,
+      "L-person": 3,
+      "U-person": 4,
+      "B-time": 5,
+      "I-time": 6,
+      "L-time": 7,
+      "U-time": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

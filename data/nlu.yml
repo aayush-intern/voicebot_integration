@@ -1,0 +1,60 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: talking_points
+  examples: |
+   - We need to make a presentation
+   - Your quarterlies look very good
+   - Permission granted
+   - All the test cases ran optimally
+   - The core compression algorithm is optimal
+   - We've all read the latest sales agreement
+   - That is a beta of their entire mobile platform
+   - We need daily active users
+   - I need you focused on making as many of them as possible, as fast as possible
+   - To date, we have manufactured almost 400,000 mobile devices
+   - We coded a diagnostic tool
+
+- intent: actionitems
+  examples: |
+   - Set up a meeting with [Harry](person) at [6 pm](time)
+   - Remind [me](person) to send the email
+   - Speak to clients on the phone
+   - Draw up the paperwork
+   - [I](person) have a customer meeting
+   - You have [ten weeks](time) to complete a working prototype before the deal expires
+   - [I](person) have a board meeting
+   - [We](person) will be reconvening tomorrow
+   - [She](person) is gonna set up a focus group for the platform
+   - [I](person) wanna move up our launch
+   - [We](person) have to do it manually

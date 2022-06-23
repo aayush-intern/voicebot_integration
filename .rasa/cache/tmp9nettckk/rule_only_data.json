@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "actionitem_text_form",
+    "talking_point_form"
+  ]
+}

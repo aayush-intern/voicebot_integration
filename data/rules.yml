@@ -1,0 +1,113 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Do the following whenever intent Talking Point is detected
+  steps:
+  - intent: talking_points
+  - action: utter_talking_point
+  - action: action_deactivate_loop
+  #- action: action_reset_slots
+  - action: talking_point_form
+  - active_loop: talking_point_form
+  #- action: utter_slots_values_talking_point
+  #- action: action_talking_point
+
+- rule: Do the following whenever intent Action Item is detected
+  steps:
+  - intent: actionitems
+  - action: utter_action_item
+  #- action: utter_getting_owner
+  #- action: action_get_owner
+  #- action: utter_getting_deadline
+  #- action: action_get_deadline
+  - action: action_deactivate_loop
+  #- action: action_reset_slots
+  - action: actionitem_text_form
+  - active_loop: actionitem_text_form
+  #- action: actionitem_form
+  #- active_loop: actionitem_form
+  
+  #- action: utter_slots_values_action_item
+  #- action: action_action_item
+
+
+#- rule: Say 'I am a bot' anytime the user challenges
+#  steps:
+#  - intent: bot_challenge
+#  - action: utter_iamabot
+
+- rule: Submit Talking Point form
+  condition:
+  # Condition that form is active.
+  - active_loop: talking_point_form
+  steps:
+  # Form is deactivated
+  - action: talking_point_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_submit
+  - action: utter_slots_values_talking_point
+  - action: action_talking_point
+  - action: action_deactivate_loop
+  - action: action_reset_slots
+
+- rule: Submit Action Item Text form
+  condition:
+  # Condition that form is active.
+  - active_loop: actionitem_text_form
+  steps:
+  # Form is deactivated
+  - action: actionitem_text_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_submit
+  - action: utter_slots_values_actionitem_text
+  - action: action_deactivate_loop
+  #- action: action_reset_slots
+  #- action: utter_ask_actionitem_form_person
+  #- action: action_listen
+  #- action: action_get_owner
+  #- action: utter_ask_actionitem_form_time
+  #- action: action_listen
+  #- action: action_get_deadline
+  - action: actionitem_form
+  - active_loop: actionitem_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+   #The actions we want to run when the form is submitted.
+  - action: utter_submit
+  - action: utter_slots_values_actionitem
+  #- action: action_action_item
+  - action: action_deactivate_loop
+  - action: action_action_item
+  - action: action_reset_slots
+
+#- rule: Submit Action Item form
+  #condition:
+  # Condition that form is active.
+  #- active_loop: actionitem_form
+  #steps:
+  # Form is deactivated
+  #- action: actionitem_form
+  #- active_loop: null
+  #- slot_was_set:
+  #  - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  #- action: utter_submit
+  #- action: utter_slots_values_actionitem
+  #- action: action_action_item
+  #- action: action_deactivate_loop
+  #- action: action_reset_slots
+
+

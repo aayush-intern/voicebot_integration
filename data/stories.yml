@@ -1,0 +1,65 @@
+version: "3.1"
+
+stories:
+
+#- story: happy path
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_great
+#  - action: utter_happy
+
+#- story: sad path 1
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: affirm
+#  - action: utter_happy
+
+#- story: sad path 2
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: deny
+#  - action: utter_goodbye
+
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+#- story: story talking point
+  #steps:
+  #- action: utter_greet
+  #- intent: talking_points
+  #- action: utter_talking_point
+  #- action: action_deactivate_loop
+  #- action: action_reset_slots
+  #- action: talking_point_form
+  #- active_loop: talking_point_form
+  #- action: utter_slots_values_talking_point
+  #- action: action_talking_point
+
+#- story: story action item
+  #steps:
+  #- action: utter_greet
+  #- intent: actionitems
+  #- action: utter_action_item
+  #- action: action_deactivate_loop
+  #- action: action_reset_slots
+  #- action: utter_getting_owner
+  #- action: action_get_owner
+  #- action: utter_getting_deadline
+  #- action: action_get_deadline
+  #- action: actionitem_text_form
+  #- active_loop: null
+  #- action: actionitem_form
+  #- active_loop: actionitem_text_form
+  #- action: utter_slots_values_action_item
+  #- action: action_action_item

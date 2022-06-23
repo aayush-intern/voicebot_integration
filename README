@@ -1,0 +1,3 @@
+Start Rasa action server in one terminal using "rasa run actions"
+Open a new terminal and execute the following command: "rasa run -m models --endpoints endpoints.yml --port 5002 --credentials credentials.yml" to start Rasa server
+Open a new terminal and execute: "python Voice_bot.py"

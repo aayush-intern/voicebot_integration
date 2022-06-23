@@ -1,0 +1,123 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - talking_points
+  - actionitems
+
+entities:
+  #- owner
+  - person
+  #- date
+  - time
+
+slots:
+  person:
+    type: any
+    influence_conversation: false
+    mappings:
+      #- type: from_entity
+      - type: custom
+        action: action_get_owner
+        #entity: person
+        #intent: actionitems
+        conditions: 
+          - active_loop: actionitem_form
+            requested_slot: person
+  time:
+    type: any
+    influence_conversation: false
+    mappings:
+      #- type: from_entity
+      - type: custom
+        action: action_get_deadline
+        #entity: time
+        #intent: actionitems
+        conditions: 
+          - active_loop: actionitem_form
+            requested_slot: time
+
+  actionitem_text:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        intent: actionitems
+        #conditions: 
+        #  - active_loop: actionitem_text_form
+        #    requested_slot: actionitem_text
+
+  talking_point_text:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        intent: talking_points
+
+forms:
+  actionitem_form:
+    required_slots:
+      #- actionitem_text
+      - person
+      - time
+      
+  actionitem_text_form:
+    required_slots:
+      - actionitem_text
+
+  talking_point_form:
+    required_slots:
+      - talking_point_text
+
+actions:
+  - action_talking_point
+  - action_action_item
+  - action_reset_slots
+  #- action_get_fields
+  #- action_deactivate_loop
+  - action_get_owner
+  - action_get_deadline
+
+responses:
+  utter_greet:
+  - text: "Hey! I'm Fogcub"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_talking_point:
+    - text: "Talking Point"
+
+  utter_action_item:
+    - text: "Action Item"
+
+  utter_getting_owner:
+    - text: "Getting Owner"
+
+  utter_getting_deadline:
+    - text: "Getting Deadline"
+
+  utter_ask_actionitem_form_person:
+    - text: "Please provide Owner/s"
+
+  utter_ask_actionitem_form_time:
+    - text: "Please provide Deadline"
+
+  utter_submit:
+    - text: "Form submitted"
+
+  utter_slots_values_actionitem:
+    - text: "Here's the information I've saved:\n - Owner: {person}\n - Deadline: {time}\n..."
+
+  utter_slots_values_actionitem_text:
+    - text: "Here's the information I've saved:\n - Action Item: {actionitem_text}\n..."
+
+  utter_slots_values_talking_point:
+    - text: "Here's the information I've saved:\n - Talking Point: {talking_point_text}\n..."
+
+  utter_default:
+    - text: "Sorry I didn't get that. Could you rephrase?"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
